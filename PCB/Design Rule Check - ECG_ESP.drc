@@ -1,0 +1,82 @@
+Protel Design System Design Rule Check
+PCB File : D:\ELECTRICAL ENG\WORK\PROJECTs\Medical IOT\ECG Monitoring\PCB\ECG_ESP.PcbDoc
+Date     : 22/07/2017
+Time     : 04:10:54 Þ.Ù
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "D13" (5290mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "+3.3" (5190mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "AREF" (5090mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A0" (4990mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A1" (4890mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A2" (4790mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A3" (4690mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A4" (4590mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A5" (4490mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A6" (4390mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A7" (4290mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "+5" (4195mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "RST" (4095mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "GND" (3995mil,-5425mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "VIN" (3890mil,-5420mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "D13" (5790mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "+3.3" (5690mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "AREF" (5590mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A0" (5490mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A1" (5390mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A2" (5290mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A3" (5190mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A4" (5090mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A5" (4990mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A6" (4890mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "A7" (4790mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "+5" (4695mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "RST" (4595mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "GND" (4495mil,-1080mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Text "VIN" (4390mil,-1075mil)  Top Overlay
+Rule Violations :30
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+   Violation between Text "VIN" (4220mil,3510mil)  Top Overlay and 
+                     Text "VIN" (4225mil,3510mil)  Top Overlay
+Rule Violations :1
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=12mil) (Max=20mil) (Preferred=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=15mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+
+Violations Detected : 31
+Time Elapsed        : 00:00:00

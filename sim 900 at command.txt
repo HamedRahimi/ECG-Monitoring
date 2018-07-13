@@ -1,0 +1,482 @@
+/////////////// gsm configurations////////////////////////////
+ascci cod for ENTER key :0x0D
+ascci cod for CTRL_Z key:0x1A 
+
+///////clock//////
+AT+CCLK?  answer is +CCLK: "15/09/27,04:59:11+14"
+AT+CLTS=?  answer: +CLTS: "yy/MM/dd,hh:mm:ss+/-zz"
+AT+CLTS    =1 
+Sync your SIM900 with current time by
+first AT+CLTS=1 for only once
+AT+CCLK="15/09/27,04:59:03+14" zz:tehran=gmt+4.5=14 *15min
+AT+CCLK="94/05/06,22:10:00+08"
+///////////////
+
+SMS configurations FOR SIM 900
+REGISTER TO NETWORK                  AT+CPIN=9518
+AT+CSCS="GSM"   response:OK          
+
+AT+CSMINS? 1:simcard dedected  0 not dedectet 
+
+swiching GONFIG TO text mode
+AT+CMGF=1 response:ok
+
+sending sms
+AT+CMGS="09366471551"\r > Sim900SMS  CTRLZ sending sms to an sim
+response:+cmgs 230    230 is numbre that is increased with an sms one. 
+ 
+         OK
+
+if sim900 recive a sms it's response is
++CMTI: "SM",12     12  declares sms's palce in sim memory
+
++CMGR: "REC UNREAD","+989366471551","","date"
+engine on
+
+
+checking simcard's validity amount
+AT+CUSD=1,"*140*11#",15  response:OK
+
+                                  +CUSD: 0,"hex numbers",72
+
+sending sms
+do sms configuration and text mode
+AT+CMGS="09366471551"
+wait to get > write  text ant ctrlz  in response is an status code
+response:+CMGS: 231
+
+         OK
+
+
+to delete all sms in the sim cart memory
+AT+CMGDA="DEL ALL"  response:OK
+
+reading  sms
+AT+CMGR=14 response:ok
++CMGR: "REC UNREAD","+989366471551","","14/10/07,13:07:54+00"
+engine on    t > wr  fg+CMGSsd
+
+OK
+
++CMGR: "REC UNREAD","+989366471551","","14/10/07,13:07:54+00"
+engine off
+
+
+//CALLING CONFIGURATIN//
+
+WHEN SB CALL YOU WITH THIS AT COMMAND YOU CAN END THE voiceCALL with:
+AT+HVOIC    response: OK
+
+IF SB CALL YOU SIM900 REPONSE IS :  +CLCC: 1,1,4,0,0,"+989366471551",145,""
+                                    RING
++CLCC: 1,1,4,0,0,"+989366471551",145,""RING
+RING
+mo\nRING\rlklkhkhggcsfdghdfhdfh
+
+/r/nRING/r/n
+
+\n0x0A
+\r 0x0d       \r\nRING\r\n
+
++CLCC response happens when you had used AT+CLCC=1
+   
+
+ATH0  HANG UP ALL CALLS (DICONNECTING CALL )   response: OK
+
+ATA   is a command to answer the current call  response: OK
+when sim900 call you and you reject ,sim 900 response is:NO CARRIER
+
+ATD  IS a command to call sb  inte following manner :  ATD 09366471551;
+response: OK
+
+
+redial last last telephone number which used
+ATDL   response: OK
+
+report alist of current calls on memory(something like caller id)
+AT+CLCC=1      1:report(as following) both response is:ok
+                0:dont report a list of current calls of memory atomatically 
+                when the current call satatus changes.
+
+ECHO MODE 
+ ATE0  echo mode is off     ATE1  echo mode is on     both reponse: OK 
+
+monitoring  speaker loaudness
+ATL<value>  <value>:from 0 to 9 
+
+
+
+
+/////module configuration
+
+set module functionality 
+AT+CFUN=0  minimum functionality 
+AT+CFUN=1  full functionality
+AT+CFUN=4  disable phone(transmitting an reciving circuits are off (rf func off))
+you can't  call sb or recive a call from sb and the same story for sms
+all responses are : OK
+ 
+reseting module 
+AT+CFUN=1,1    response: +CFUN=1,1
+
+
+CLOCK
+AT+CCLK?   to  get time  response: +CCLK: "00/01/01,00:32:33+00"
+AT+CCLK=<time>   <time>=yy/mm/dd,hh:mm:ss+_zz  (fx GMT+2=08 so +-z =08)
+
+
+ALert sound mode
+AT+CALM=0    0=normal mode   response:OK 
+
+alert sound select
+AT+CALS=<n>   <n>= from 1 to 19
+
+
+ringer sound level
+AT+CRSL=0 level off
+AT+CRSL=1 level low
+AT+CRSL=2 level medium    all responses are OK
+AT+CRSL=3 level high
+AT+CRSL=4 level cresceondo
+
+
+speaker volume level
+AT+CLVL=<level>  <level> from 0 to 100    response: OK
+
+
+
+
+GPRS AT COOMANDS 
+///////////////////////////////////////////////////////////////////////
+
+this command return network's signal strength and its quality
+
+  AT+CSQ
+
+  CSQ: 20,0                          
+
+  OK
+
+
+
+
+
+
+this command return's connectivitie's state of sim900 to GPRS internet.
+1 means connected to GPRS an 0 means not connected to GPRS
+
+  AT+CGATT?
+
+  +CGATT: 1
+
+  OK
+
+
+
+with this at command  sim900 can connect to GPRS 
+
+AT+CGATT=1
+
+OK
+
+
+
+
+
+with this at command  sim900 can disconnect  from GPRS 
+
+
+AT+CGATT=0
+
+OK
+
+
+
+
+
+this comand returns ip of sim900 which is coonected to internet
+
+ 
+AT+CIFSR
+
+10.77.65.18
+
+
+
+
+with this command  sim900 returns  specific ip of site that has been given to
+sim 900
+ 
+
+AT+CDNSGIP=”WWW.ELECTRONICS98.COM”
+
+OK
+
++CDNSGIP: 1," WWW.ELECTRONICS98.COM "," 78.46.19.108"
+
+
+
+
+
+using tcp protocol  and an ip(specipifc ip for site) to connect to a site 
+that it's specefic ip should be added to at command.
+tcp:comunication protocol    ip :site's  specific ip address
+ (it differs from same ip of various sites with in a server (hard disck ))
+
+
+AT+CIPSTART=”TCP”,”IP”,”PORT”    
+
+
+
+
+
+port :sookete etesali be site hast baraye dastrasi be safhe asli bayad 
+80 bashad (dar aksar site ha in goone hast)
+
+
+
+AT+CIPSTART=”TCP”,”78.46.19.108?,80
+
+OK
+
+CONNECT OK
+
+
+
+
+
+
+with this command you can send information to a site through 
+GPRS  and wating for response from that web site 
+
+
+
+AT+CIPSEND
+
+> hello TCP                     //CTRL+Z
+
+SEND OK
+
+hello sim900              // Received data from remote server
+
+CLOSED
+
+
+
+
+
+
+
+GPRS configurations eca 
+
+**********************************************************
+
+AT+CIPSHUT   response:SHUT OK     //deactivate gprs pdp contex
+ 
+AT+CGATT=1   response:\r OK    // to attach(cocnnect) to GPRS service
+
+AT+CGDCONT=1 response:OK  //define pdp contex with identifier 1 and 
+                            difinition stored in non_volatile memory
+
+AT+CGDCONT=1,"IP","mcinet"  //            response: OK
+ 
+AT+CSTT="mcinet(it is apn)","<username >","<password>"  //defining username and 
+AT+CSTT="mcinet","","" response:OK                             password for GPRS
+
+remember that hamrahe aval dosen't provide user and password for user
+
+ 
+AT+CIICR       //bring up GPRS conection response: OK  or ERRORE
+
+AT+CIPSTATUS   //query ( ask ) current connection status
+
+AT+CIPSTATUS
+OK
+
+STATE: IP GPRSACT
+
+ 
+
+AT+CIFSR   response :10.242.199.243  //getting local ip address that assigned
+                                      from GPRS (assign  ekhtesas dadan )
+
+
+AT+CIPHEAD=1  //adding ip header  <mode+1>:add ip header with this format
+///////////////////////////////  +IPD,data length:"  
+                                          response: OK
+//use last code block  now
+
+//start up tcp  connection and  response:CONNECT OK
+AT+CIPSTART="TCP","daymag.ir","80" 
+
+//send data through tcp connection
+AT+CIPSEND
+>> GET /req/request.php?q=abcd/HTTP/1.1
+>> HOST: http://daymag.ir
+
+>> GET HTTP/1.1://www.daymag.ir/req/request.php?q=abcd/HTTP/1.1
+
+close tcp connection
+AT+CIPCLOSE
+
+
+//display ip addresss and port of sender when receive data
+AT+CIPSRIP=1 response:ok
+
+//returns  current selected operator information
+AT+COPS?
+
+
+
+
+****************************************************************************
+
+
+
+
+
+/////////////////////////////GPRS config///////////////////
+-----------------------------------------------------------------------------
+
+Re: SIM900 command for send query "GET / HTTP/1.1" to a server 
+
+This is how you send AT commands to SIM300 module to setup GPRS connection.
+
+ >> AT+CGATT=1 - Attach to GPRS Service
+ << OK
+
+ >> AT+CGDCONT=1,"IP","mcinet" - Define PDP Context (cid, PDP type, APN)
+ << OK
+
+ >> AT+CSTT="mcinet","","" - Start Task & set APN, User ID, and password
+ << OK     //error: 3 happend to me!?
+
+ >> AT+CIICR - Bring up wireless connection with GSM or CDS
+ << OK
+
+ >> AT+CIFSR - Get Local IP address
+ << 10.190.245.172
+ << OK
+
+ >>AT+CIPSTATUS - Query current connection status
+ << OK
+ << STATE: IP STATUS
+
+ >> AT+CIPHEAD=1 - to add an 'IP Header' to receive data
+ << OK
+
+ >> AT+CDNSORIP=1 - query the IP address of the given domain name
+ << OK   //no need this one
+
+//here!
+ >> AT+CIPSTART="TCP","www.daymag.ir","80" - Start up TCP connection
+ << OK
+ >>AT+CIPSTART="TCP","www.india.com","80"
+ << CONNECT OK - Indicates you've connected to the server
+
+
+ >> AT+CIPSEND - Issue Send Command
+ << >
+ >> GET /testdata.php?data=Prateek HTTP/1.1 (ctrl+m)(ctrl+j)
+ >>HOST: www.india.com (ctrl+m)(ctrl+j) (ctrl+j)(ctrl+z)
+
+
+******sroush 
+ >>AT+CIPSTART="TCP","www.google.com","80"
+ >>AT+CIPSEND
+ >>GET /HTTP/1.1
+ >> HOST: www.google.com
+******
+ >> GET /req/request.php?q=abcHTTP/1.1(ctrl+m)(ctrl+j)
+  (ctrl+m)(ctrl+j) (ctrl+j)(ctrl+z)
+ >> http://daymag.ir       ///////
+ >> http://google.com/     ///////
+
+
+ << SEND OK
+
+
+
+ << server send data back
+
+
+ can any one help me to execute this commands set on SIM908
+ command AT+CDNSORIP=1 is not working on sim908 
+
+
+
+ Reply With Quote 
+
+
+*******s&S
+ >>GET /HTTP/1.1
+ >> HOST: www.google.com
+
+
+>> GET /req/request.php?q=abcd/HTTP/1.1
+>> HOST: http://daymag.ir
+--------------------------------------------------------------------------------
+ 
+//this is last block!
+mohamad 
+////////////////
+AT+CIPSTART="TCP","74.125.205.94","80"
+AT+CIPSEND
+GET / HTTP/1.1       Ctrlm Ctrlj
+Host: www.google.de   Ctrlm Ctrlj
+Host:www.google.com/?q=current+time#q=current+time+in+iran to get time and date.
+Connection: close     Ctrlm Ctrlj ctrlj ctrlz
+//enough
+Accept-Charset: ISO-8859-1,UTF-8;q=0.7,*;q=0.7   Ctrlm Ctrlj
+Cache-Control: no-cache                        Ctrlm Ctrlj
+Accept-Language: de,en;q=0.7,en-us;q=0.3       Ctrlm Ctrlj
+Referer: http://google.com/                    Ctrlm Ctrlj
+ CtrlmCtrljCtrlj  Ctrlz
+/////////////////////////////////
+simbole hexcode
+CTRL-Z  1A         decimal 26 
+CTRL-J  0A
+CTRL-M  0D
+///////////////////////////////////////
+AT+CIPSTART="TCP","daymag.ir","80"
+AT+CIPSEND 
+GET /req/request.php?q=i'msim900 HTTP/1.1      Ctrlm Ctrlj
+Host: daymag.ir         Ctrlm Ctrlj
+Connection: close     Ctrlm Ctrlj Ctrlj Ctrlz
+//enough
+Accept-Charset: ISO-8859-1,UTF-8;q=0.7,*;q=0.7   Ctrlm Ctrlj
+Cache-Control: no-cache                        Ctrlm Ctrlj
+Accept-Language: en-us       Ctrlm Ctrlj
+Referer: http://google.com/                    Ctrlm Ctrlj
+ CtrlmCtrljCtrlj  Ctrlz
+
+
+///////////////////////////////////////////////////////////
+to get time from internet: 
+
+www.google.com/?q=current+time#q=current+time+in+iran
+
+my result:
+
+SEND OK
+
++IPD,215:HTTP/1.1 400 Bad Request
+Content-Length: 54
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 29 Sep 2015 23:00:03 GMT
+Server: GFE/2.0
+Connection: close
+
+SEND OK
+with delay... about 3 sec ..
+HTTP/1.1 400 Bad Request
+Content-Length: 54
+Content-Type: text/html; charset=UTF-8
+Date: Wed, 30 Sep 2015 20:29:00 GMT
+Server: GFE/2.0
+Connection: close
+
+<html><title>Error 400 (Bad Request)!!1</title></html>
+CLOSED
+
+
